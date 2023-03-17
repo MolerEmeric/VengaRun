@@ -188,6 +188,8 @@ class GameActivity : AppCompatActivity(), SensorEventListener {
                 if (obs.pos < 0.25f && (obs as Breakable).nbClick <= 5) win()
             }
 
+            //if(obs.pos < 0.25f && (obs is Breakable || (obs is Fairy && evilFairies))) win()
+
             val cl = findViewById<View>(R.id.runner) as ConstraintLayout
             val cs = ConstraintSet()
 
