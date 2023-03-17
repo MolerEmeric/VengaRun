@@ -79,10 +79,6 @@ class GameActivity : AppCompatActivity(), SensorEventListener {
 
         mChronometer = findViewById<Chronometer>(R.id.chronometer)
 
-        findViewById<Button>(R.id.score).setOnClickListener{
-            win()
-        }
-
         sensorManager = getSystemService(Context.SENSOR_SERVICE) as SensorManager
         lightSensor = sensorManager.getDefaultSensor(Sensor.TYPE_LIGHT)
         acceleroMeter = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER)
@@ -100,10 +96,21 @@ class GameActivity : AppCompatActivity(), SensorEventListener {
         obstacles.add(FloorSpike(R.id.floorSpike1, 1f))
         obstacles.add(FloorSpike(R.id.floorSpike2, 1.2f))
         obstacles.add(RoofSpike(R.id.roofSpike1, 1.4f))
-        obstacles.add(Fairy(R.id.fairy1, 1.6f))
+        obstacles.add(Fairy(R.id.fairy1, 0.5f))
         obstacles.add(FloorSpike(R.id.floorSpike3, 1.8f))
-        obstacles.add(Breakable(R.id.breakable1, 1.9f))
-        obstacles.add(Breakable(R.id.breakable2, 2f))
+
+        val b1 = Breakable(R.id.breakable1, 1.9f)
+        obstacles.add(b1)
+        findViewById<ImageView>(R.id.breakable1).setOnClickListener{
+            b1.nbClick += 1
+        }
+
+        val b2 = Breakable(R.id.breakable2, 2f)
+        obstacles.add(b2)
+        findViewById<ImageView>(R.id.breakable2).setOnClickListener{
+            b2.nbClick += 1
+        }
+
         obstacles.add(Fairy(R.id.fairy2, 2.3f))
         obstacles.add(Fairy(R.id.fairy3, 2.4f))
         obstacles.add(RoofSpike(R.id.roofSpike2, 2.6f))
@@ -111,8 +118,19 @@ class GameActivity : AppCompatActivity(), SensorEventListener {
         obstacles.add(RoofSpike(R.id.roofSpike3, 3f))
         obstacles.add(FloorSpike(R.id.floorSpike5, 3.2f))
         obstacles.add(FloorSpike(R.id.floorSpike6, 3.4f))
-        obstacles.add(Breakable(R.id.breakable3, 3.5f))
-        obstacles.add(Breakable(R.id.breakable4, 3.6f))
+
+
+        val b3 = Breakable(R.id.breakable3, 3.5f)
+        obstacles.add(b3)
+        findViewById<ImageView>(R.id.breakable3).setOnClickListener{
+            b3.nbClick += 1
+        }
+
+        val b4 = Breakable(R.id.breakable4, 3.6f)
+        obstacles.add(b4)
+        findViewById<ImageView>(R.id.breakable4).setOnClickListener{
+            b4.nbClick += 1
+        }
 
         mChronometer.start()
     }
@@ -128,7 +146,6 @@ class GameActivity : AppCompatActivity(), SensorEventListener {
     private fun loop() {
         if (isDead) return
         updateJumpBools()
-
 
         //Boucle de jeu
         updateObstacle()
@@ -164,7 +181,11 @@ class GameActivity : AppCompatActivity(), SensorEventListener {
             obs.pos -= 0.01f
 
             if(obs is Breakable){
-                if (obs.pos < 0.25f) win()
+                if((obs as Breakable).nbClick > 5){
+                    findViewById<ImageView>(obs.imgId).visibility = View.GONE
+                }
+
+                if (obs.pos < 0.25f && (obs as Breakable).nbClick <= 5) win()
             }
 
             val cl = findViewById<View>(R.id.runner) as ConstraintLayout
