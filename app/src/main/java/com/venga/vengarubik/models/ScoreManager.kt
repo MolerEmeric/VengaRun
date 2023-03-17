@@ -5,6 +5,6 @@ object ScoreManager {
 
     fun addScore(score : Int) {
         scores.add(score)
-        scores = ArrayList(scores.sorted().take(5))
+        scores = ArrayList(scores.sortedDescending().take(5))
     }
 }
