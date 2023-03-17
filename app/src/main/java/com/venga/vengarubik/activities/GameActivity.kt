@@ -1,6 +1,5 @@
 package com.venga.vengarubik.activities
 
-import android.animation.ObjectAnimator
 import android.content.Context
 import android.content.Intent
 import android.hardware.Sensor
@@ -14,7 +13,6 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.os.SystemClock
-import android.util.Log
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import com.venga.vengarubik.R
@@ -102,11 +100,20 @@ class GameActivity : AppCompatActivity(), SensorEventListener {
     private val refreshDelay = 100
     private fun loop() {
         //x² de jeu
-        setJumpHigh(false)
-        setJumpLow(false)
+        updateJumpBools()
         Handler(Looper.getMainLooper()).postDelayed({
             loop()
         }, refreshDelay.toLong())
+    }
+
+    private var jumpFrames = 0
+    fun updateJumpBools() {  // 4 frames
+        jumpFrames += 1
+        if (jumpFrames == 4) {
+            setJumpLow(false)
+            setJumpHigh(false)
+            jumpFrames = 0
+        }
     }
 
     override fun onDestroy() {
