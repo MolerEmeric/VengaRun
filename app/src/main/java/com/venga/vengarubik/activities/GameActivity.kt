@@ -93,10 +93,10 @@ class GameActivity : AppCompatActivity(), SensorEventListener {
 
         selectCaseSound = soundPool.load(this, R.raw.select_case, 1)
 
-        obstacles.add(FloorSpike(R.id.floorSpike1, 1f))
+        obstacles.add(FloorSpike(R.id.floorSpike1, 0.5f))
         obstacles.add(FloorSpike(R.id.floorSpike2, 1.2f))
         obstacles.add(RoofSpike(R.id.roofSpike1, 1.4f))
-        obstacles.add(Fairy(R.id.fairy1, 0.5f))
+        obstacles.add(Fairy(R.id.fairy1, 1.6f))
         obstacles.add(FloorSpike(R.id.floorSpike3, 1.8f))
 
         val b1 = Breakable(R.id.breakable1, 1.9f)
@@ -162,6 +162,7 @@ class GameActivity : AppCompatActivity(), SensorEventListener {
         if (crochFrames == 15){
             estAccroupi = false
             crochFrames = 0
+            findViewById<ImageView>(R.id.player).setImageResource(R.drawable.bandit1);
         }
     }
 
@@ -197,7 +198,7 @@ class GameActivity : AppCompatActivity(), SensorEventListener {
             }
 
             if(obs is RoofSpike){
-                if (!estAccroupi && obs.pos < 0.20f) win()
+                if (!estAccroupi && obs.pos < 0.25f) win()
             }
 
             if (obs is Fairy) {
@@ -205,6 +206,10 @@ class GameActivity : AppCompatActivity(), SensorEventListener {
                 else findViewById<View>(obs.imgId).alpha = 1f
 
                 if (obs.pos < 0.25f && evilFairies) win()
+            }
+
+            if (obs is FloorSpike){
+                if ((!jumpLow || !jumpHigh) && obs.pos < 0.15f) win()
             }
 
             if(!(obs.pos < 0 && obs.pos > 1)){
@@ -283,6 +288,7 @@ class GameActivity : AppCompatActivity(), SensorEventListener {
             }
             else if (angle > 0.03){
                 estAccroupi = true
+                findViewById<ImageView>(R.id.player).setImageResource(R.drawable.bandit2);
             }
             return
         }
