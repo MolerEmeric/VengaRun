@@ -67,7 +67,7 @@ class GameActivity : AppCompatActivity(), SensorEventListener {
 
     private val obstacles = mutableListOf<Obstacle>()
 
-    private val isDead = false
+    private var isDead = false
     //endregion
 
     private var estAccroupi = false
@@ -262,6 +262,7 @@ class GameActivity : AppCompatActivity(), SensorEventListener {
     // region Utilitaries
     private fun win(){
         mChronometer.stop()
+        isDead = true
         val timeLong = (SystemClock.elapsedRealtime() - mChronometer.base)
         val time = ((timeLong) / 1000).toInt()
         ScoreManager.addScore(time)
