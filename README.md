@@ -1,6 +1,6 @@
 # VengaRun
 
-A challenging isometric Rubik's Cube like mobile game.
+
 
 ## Technologies
 - Native Android/Kotlin ( sensors : gyroscope, light sensor & accelerometer )
