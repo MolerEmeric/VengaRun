@@ -13,6 +13,7 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.os.SystemClock
+import android.util.Log
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import com.venga.vengarubik.R
@@ -63,6 +64,8 @@ class GameActivity : AppCompatActivity(), SensorEventListener {
     private val obstacles = mutableListOf<Obstacle>()
     //endregion
 
+    private var estAccroupi = false
+
     // region Life Cycles
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -102,9 +105,20 @@ class GameActivity : AppCompatActivity(), SensorEventListener {
     private fun loop() {
         //x² de jeu
         updateJumpBools()
+        updateAccroupi()
+        Log.d("info", estAccroupi.toString())
         Handler(Looper.getMainLooper()).postDelayed({
             loop()
         }, refreshDelay.toLong())
+    }
+
+    private var crochFrames = 0
+    private fun updateAccroupi(){
+       crochFrames += 1
+        if (crochFrames == 15){
+            estAccroupi = false
+            crochFrames = 0
+        }
     }
 
     private var jumpFrames = 0
@@ -169,12 +183,22 @@ class GameActivity : AppCompatActivity(), SensorEventListener {
             SensorManager.getRotationMatrixFromVector(rotationMatrix, event.values)
 
             val orientationAngles = FloatArray(3)
+
             SensorManager.getOrientation(rotationMatrix, orientationAngles) //REGARDER QUEL ANGLE UTIISER
 
-            var angle = orientationAngles[2] + 0.22f
-            if (angle < 0f) angle = 0f
-            if (angle > 0.44f) angle = 0.44f
-            angle *= (1f / 0.44f)
+            //Log.d("info", "0 : " + orientationAngles[0] + " 1 : " + orientationAngles[1] + " 2 : " + orientationAngles[2])
+
+            var angle = orientationAngles[2] + 0.45f
+            if (angle < 0) angle = 0f
+            if (angle > 0.45) angle = 0.45f
+            angle *= (1f / 0.45f)
+
+            Log.d("info","Angle" + angle)
+
+            if (angle > 0.03){
+                estAccroupi = true
+            }
+
 
             return
         }
