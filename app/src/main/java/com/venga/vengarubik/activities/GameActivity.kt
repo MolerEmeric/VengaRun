@@ -104,7 +104,6 @@ class GameActivity : AppCompatActivity(), SensorEventListener {
         //x² de jeu
         setJumpHigh(false)
         setJumpLow(false)
-        Log.d("info", "loop")
         Handler(Looper.getMainLooper()).postDelayed({
             loop()
         }, refreshDelay.toLong())
@@ -146,11 +145,9 @@ class GameActivity : AppCompatActivity(), SensorEventListener {
                     //TODO
                     if (speed < 2000) {
                         setJumpLow(true)
-                        Log.d("info", "LOW")
                     }
                     else {
                         setJumpHigh(true)
-                        Log.d("info", "HIGH")
                     }
                 }
                 mLastAccelero = mAccelero.clone()
