@@ -6,9 +6,6 @@
 - Native Android/Kotlin ( sensors : gyroscope, light sensor & accelerometer )
 - Firebase
 
-## Testing
-
-To enter in "testing mode" select the a non production version and set the nickname to "admin" before starting a game
 
 ## Sources
 
