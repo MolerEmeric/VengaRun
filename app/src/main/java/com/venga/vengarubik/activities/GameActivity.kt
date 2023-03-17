@@ -14,6 +14,7 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.os.SystemClock
+import android.util.Log
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import com.venga.vengarubik.R
@@ -53,7 +54,9 @@ class GameActivity : AppCompatActivity(), SensorEventListener {
     private lateinit var acceleroMeter: Sensor
     private lateinit var rotatoMeter: Sensor
 
-    private val shakeTreshold = 1500
+    private val shakeTreshold = 1000
+    private var jumpHigh: Boolean = false
+    private var jumpLow: Boolean = false
     private var mAccelero = floatArrayOf(0f, 0f, 0f)
     private var mLastAccelero = floatArrayOf(0f, 0f, 0f)
     private var lastAcceleroUpdate = 0L
@@ -99,7 +102,9 @@ class GameActivity : AppCompatActivity(), SensorEventListener {
     private val refreshDelay = 100
     private fun loop() {
         //x² de jeu
-
+        setJumpHigh(false)
+        setJumpLow(false)
+        Log.d("info", "loop")
         Handler(Looper.getMainLooper()).postDelayed({
             loop()
         }, refreshDelay.toLong())
@@ -130,7 +135,6 @@ class GameActivity : AppCompatActivity(), SensorEventListener {
 
         if (event.sensor.type == Sensor.TYPE_ACCELEROMETER) {
             val curTime = System.currentTimeMillis() //SAUTER PLUS HAUT OU PLUS BAS
-            println("TESTTTT")
             mAccelero = event.values
             if (curTime - lastAcceleroUpdate > 100) {
                 val diffTime: Long = curTime - lastAcceleroUpdate
@@ -140,6 +144,14 @@ class GameActivity : AppCompatActivity(), SensorEventListener {
                     abs(mAccelero[0] + mAccelero[1] + mAccelero[2] - mLastAccelero[0] - mLastAccelero[1] - mLastAccelero[2]) / diffTime * 10000
                 if (speed > shakeTreshold) {
                     //TODO
+                    if (speed < 2000) {
+                        setJumpLow(true)
+                        Log.d("info", "LOW")
+                    }
+                    else {
+                        setJumpHigh(true)
+                        Log.d("info", "HIGH")
+                    }
                 }
                 mLastAccelero = mAccelero.clone()
             }
@@ -170,6 +182,14 @@ class GameActivity : AppCompatActivity(), SensorEventListener {
             return
         }
 
+    }
+
+    fun setJumpHigh(bool: Boolean) {
+        jumpHigh = bool
+    }
+
+    fun setJumpLow(bool: Boolean) {
+        jumpLow = bool
     }
 
     override fun onAccuracyChanged(p0: Sensor?, p1: Int) {}
