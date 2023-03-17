@@ -7,7 +7,6 @@
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
-        android:icon="@drawable/launcher_icon"
         android:label="@string/app_name"
         android:roundIcon="@drawable/launcher_icon"
         android:screenOrientation="sensorPortrait"
@@ -17,7 +16,7 @@
         <activity
             android:name=".activities.IntroActivity"
             android:exported="false"
-            android:screenOrientation="portrait">
+            android:screenOrientation="landscape">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
@@ -25,7 +24,7 @@
         <activity
             android:name=".activities.ScoreActivity"
             android:exported="false"
-            android:screenOrientation="portrait">
+            android:screenOrientation="landscape">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
@@ -33,15 +32,7 @@
         <activity
             android:name=".activities.GameActivity"
             android:exported="false"
-            android:screenOrientation="portrait">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
-            android:name=".activities.DifficultyActivity"
-            android:exported="false"
-            android:screenOrientation="portrait">
+            android:screenOrientation="landscape">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
@@ -49,7 +40,7 @@
         <activity
             android:name=".activities.SelectLanguageActivity"
             android:exported="true"
-            android:screenOrientation="portrait">
+            android:screenOrientation="landscape">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

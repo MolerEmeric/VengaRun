@@ -1,4 +1,4 @@
-# VengaRubiks
+# VengaRun
 
 A challenging isometric Rubik's Cube like mobile game.
 

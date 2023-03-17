@@ -34,7 +34,7 @@ class IntroActivity : AppCompatActivity() {
         Handler(Looper.getMainLooper()).postDelayed({
             findViewById<ImageView>(R.id.clickableBg).setOnClickListener {
                 soundPool.play(btnForward, 1f, 1f, 0, 0, 1f)
-                val intent = Intent(this, DifficultyActivity::class.java)
+                val intent = Intent(this, GameActivity::class.java)
                 startActivity(intent);
             }
         }, 7000)

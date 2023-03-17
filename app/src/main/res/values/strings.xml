@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name" translatable="false">VengaRubik\'s</string>
+    <string name="app_name" translatable="false">VengarRun</string>
     <string name="english_lang">English</string>
     <string name="french_lang">French</string>
     <string name="italian_lang">Italian</string>
