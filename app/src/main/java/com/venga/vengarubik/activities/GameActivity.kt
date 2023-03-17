@@ -1,5 +1,6 @@
 package com.venga.vengarubik.activities
 
+import android.animation.ObjectAnimator
 import android.content.Context
 import android.content.Intent
 import android.hardware.Sensor
@@ -10,10 +11,13 @@ import android.media.AudioAttributes
 import android.media.MediaPlayer
 import android.media.SoundPool
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.os.SystemClock
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import com.venga.vengarubik.R
+import com.venga.vengarubik.models.Obstacle
 import kotlin.math.abs
 import kotlin.properties.Delegates
 
@@ -53,6 +57,8 @@ class GameActivity : AppCompatActivity(), SensorEventListener {
     private var mAccelero = floatArrayOf(0f, 0f, 0f)
     private var mLastAccelero = floatArrayOf(0f, 0f, 0f)
     private var lastAcceleroUpdate = 0L
+
+    private val obstacles = mutableListOf<Obstacle>()
     //endregion
 
     // region Life Cycles
@@ -86,6 +92,16 @@ class GameActivity : AppCompatActivity(), SensorEventListener {
     override fun onStart() {
         super.onStart()
         musicPlayer.start()
+
+        loop()
+    }
+
+    private fun loop() {
+        //x² de jeu
+
+        Handler(Looper.getMainLooper()).postDelayed({
+            loop()
+        }, 100)
     }
 
     override fun onDestroy() {
@@ -113,7 +129,7 @@ class GameActivity : AppCompatActivity(), SensorEventListener {
 
         if (event.sensor.type == Sensor.TYPE_ACCELEROMETER) {
             val curTime = System.currentTimeMillis() //SAUTER PLUS HAUT OU PLUS BAS
-
+            println("TESTTTT")
             mAccelero = event.values
             if (curTime - lastAcceleroUpdate > 100) {
                 val diffTime: Long = curTime - lastAcceleroUpdate

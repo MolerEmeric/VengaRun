@@ -37,7 +37,7 @@ class IntroActivity : AppCompatActivity() {
                 val intent = Intent(this, GameActivity::class.java)
                 startActivity(intent);
             }
-        }, 7000)
+        }, 0)
 
 
         Handler(Looper.getMainLooper()).postDelayed({
