@@ -134,7 +134,6 @@ class GameActivity : AppCompatActivity(), SensorEventListener {
         updateObstacle()
 
         updateAccroupi()
-        Log.d("info", estAccroupi.toString())
         Handler(Looper.getMainLooper()).postDelayed({
             loop()
         }, refreshDelay.toLong())
@@ -163,7 +162,19 @@ class GameActivity : AppCompatActivity(), SensorEventListener {
         for(obs in obstacles){
             obs.pos -= 0.01f
 
+            if(obs.pos < 0 && obs.pos > 1){
+                findViewById<View>(obs.imgId).visibility = View.GONE
+            }
+
             if(obs.pos < 0.25f && (obs is Breakable || (obs is Fairy && evilFairies))) win()
+
+            if(obs is Breakable){
+                if (obs.pos < 0.25f) win()
+            }
+
+            if(obs is RoofSpike){
+                if (!estAccroupi && obs.pos < 0.20f) win()
+            }
 
             val cl = findViewById<View>(R.id.runner) as ConstraintLayout
             val cs = ConstraintSet()
@@ -229,20 +240,16 @@ class GameActivity : AppCompatActivity(), SensorEventListener {
 
             SensorManager.getOrientation(rotationMatrix, orientationAngles) //REGARDER QUEL ANGLE UTIISER
 
-            //Log.d("info", "0 : " + orientationAngles[0] + " 1 : " + orientationAngles[1] + " 2 : " + orientationAngles[2])
+            var angle = orientationAngles[2] + 0.40f
+            if (angle > 0.40) angle = 0.40f
+            angle *= (1f / 0.40f)
 
-            var angle = orientationAngles[2] + 0.45f
-            if (angle < 0) angle = 0f
-            if (angle > 0.45) angle = 0.45f
-            angle *= (1f / 0.45f)
-
-            Log.d("info","Angle" + angle)
-
-            if (angle > 0.03){
+            if (angle == 1.toFloat()){
+                win()
+            }
+            else if (angle > 0.03){
                 estAccroupi = true
             }
-
-
             return
         }
 
