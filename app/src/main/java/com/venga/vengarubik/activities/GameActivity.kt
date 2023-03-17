@@ -13,27 +13,20 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.os.SystemClock
-<<<<<<< HEAD
 import android.view.View
-=======
 import android.util.Log
->>>>>>> 71e88a4490327b05e3f7285dbca20733d1c7288c
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.constraintlayout.widget.ConstraintSet
 import com.venga.vengarubik.R
-<<<<<<< HEAD
 import com.venga.vengarubik.models.*
-=======
 import com.venga.vengarubik.models.Obstacle
 import com.venga.vengarubik.models.ScoreManager
->>>>>>> 71e88a4490327b05e3f7285dbca20733d1c7288c
 import kotlin.math.abs
 import kotlin.properties.Delegates
 
 class GameActivity : AppCompatActivity(), SensorEventListener {
-
 
     // region Class Fields
     private val musicLoopIds = listOf(
@@ -135,15 +128,13 @@ class GameActivity : AppCompatActivity(), SensorEventListener {
     private fun loop() {
         if (isDead) return
         updateJumpBools()
-<<<<<<< HEAD
+
 
         //Boucle de jeu
         updateObstacle()
 
-=======
         updateAccroupi()
         Log.d("info", estAccroupi.toString())
->>>>>>> 71e88a4490327b05e3f7285dbca20733d1c7288c
         Handler(Looper.getMainLooper()).postDelayed({
             loop()
         }, refreshDelay.toLong())
