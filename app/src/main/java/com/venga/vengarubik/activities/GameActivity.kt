@@ -200,6 +200,13 @@ class GameActivity : AppCompatActivity(), SensorEventListener {
                 if (!estAccroupi && obs.pos < 0.20f) win()
             }
 
+            if (obs is Fairy) {
+                if (!evilFairies) findViewById<View>(obs.imgId).alpha = 0.5f
+                else findViewById<View>(obs.imgId).alpha = 1f
+
+                if (obs.pos < 0.25f && evilFairies) win()
+            }
+
             if(!(obs.pos < 0 && obs.pos > 1)){
                 val cl = findViewById<View>(R.id.runner) as ConstraintLayout
                 val cs = ConstraintSet()
@@ -282,7 +289,7 @@ class GameActivity : AppCompatActivity(), SensorEventListener {
 
 
         if (event.sensor.type == Sensor.TYPE_LIGHT) {
-            evilFairies = event.values[0] >= 100f
+            evilFairies = event.values[0] >= 80f
             return
         }
 
