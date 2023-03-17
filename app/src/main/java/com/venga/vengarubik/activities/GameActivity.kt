@@ -17,6 +17,7 @@ import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import com.venga.vengarubik.R
 import com.venga.vengarubik.models.Obstacle
+import com.venga.vengarubik.models.ScoreManager
 import kotlin.math.abs
 import kotlin.properties.Delegates
 
@@ -202,10 +203,11 @@ class GameActivity : AppCompatActivity(), SensorEventListener {
     // region Utilitaries
     private fun win(){
         mChronometer.stop()
-
         val timeLong = (SystemClock.elapsedRealtime() - mChronometer.base)
-        val time = (timeLong) / 1000
+        val time = ((timeLong) / 1000).toInt()
+        ScoreManager.addScore(time)
         val intent = Intent(this, ScoreActivity::class.java)
+        intent.putExtra("actualScore", time)
         startActivity(intent)
     }
     // endregion

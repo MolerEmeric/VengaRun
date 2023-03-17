@@ -17,7 +17,7 @@
     <string name="solve">Risolvere</string>
     <string name="inaccessible_database">NESSUNA CONNESSIONE INTERNET</string>
     <string name="your_score">VOSTRO PUNTEGGIO</string>
-    <string name="top_scores">VOSTRI PUNTEGGI MIGLIORI PASSATI</string>
+    <string name="top_scores">VOSTRI 5 PUNTEGGI MIGLIORI</string>
     <string name="worse_feedback">PUOI FAIRE MEGLIO!</string>
     <string name="better_feedback">BRAVO! AVETE BATTUTO IL VOSTRO PUNTEGGIO PIÙ ALTO</string>
     <string name="menu">menù</string>

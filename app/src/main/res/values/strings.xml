@@ -17,7 +17,7 @@
     <string name="extreme">Extreme (4x4)</string>
     <string name="inaccessible_database">NO INTERNET CONNECTION</string>
     <string name="your_score">YOUR SCORE</string>
-    <string name="top_scores">YOUR PAST TOP SCORES</string>
+    <string name="top_scores">YOUR TOP 5 SCORES</string>
     <string name="worse_feedback">YOU CAN DO BETTER!</string>
     <string name="better_feedback">NICE! YOU BEAT YOUR TOP SCORE</string>
     <string name="menu">menu</string>
