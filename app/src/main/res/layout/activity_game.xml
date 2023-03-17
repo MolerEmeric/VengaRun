@@ -23,31 +23,235 @@
         android:id="@+id/runner"
         android:layout_width="1626dp"
         android:layout_height="0dp"
+        android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/chronometer">
 
         <ImageView
-            android:id="@+id/imageView2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:id="@+id/breakable1"
+            android:layout_width="300dp"
+            android:layout_height="300dp"
+            android:rotationY="180"
+            android:visibility="visible"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.45"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:srcCompat="@tools:sample/avatars" />
+            app:layout_constraintVertical_bias="1.0"
+            app:srcCompat="@drawable/large_mushroom1" />
 
         <ImageView
-            android:id="@+id/imageView4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:id="@+id/breakable2"
+            android:layout_width="300dp"
+            android:layout_height="300dp"
+            android:rotationY="180"
+            android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/done_20px" />
+            app:layout_constraintVertical_bias="1.0"
+            app:srcCompat="@drawable/large_mushroom1" />
+
+        <ImageView
+            android:id="@+id/breakable3"
+            android:layout_width="300dp"
+            android:layout_height="300dp"
+            android:rotationY="180"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0"
+            app:srcCompat="@drawable/large_mushroom1" />
+
+        <ImageView
+            android:id="@+id/breakable4"
+            android:layout_width="300dp"
+            android:layout_height="300dp"
+            android:rotationY="180"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0"
+            app:srcCompat="@drawable/large_mushroom1" />
+
+        <ImageView
+            android:id="@+id/fairy1"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:rotationY="180"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.89"
+            app:srcCompat="@drawable/fairy" />
+
+        <ImageView
+            android:id="@+id/floorSpike1"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:rotationY="180"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0"
+            app:srcCompat="@drawable/normal_mushroom" />
+
+        <ImageView
+            android:id="@+id/floorSpike2"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:rotationY="180"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0"
+            app:srcCompat="@drawable/normal_mushroom" />
+
+        <ImageView
+            android:id="@+id/floorSpike3"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:rotationY="180"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0"
+            app:srcCompat="@drawable/normal_mushroom" />
+
+        <ImageView
+            android:id="@+id/floorSpike4"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:rotationY="180"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0"
+            app:srcCompat="@drawable/normal_mushroom" />
+
+        <ImageView
+            android:id="@+id/floorSpike5"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:rotationY="180"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0"
+            app:srcCompat="@drawable/normal_mushroom" />
+
+        <ImageView
+            android:id="@+id/floorSpike6"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:rotationY="180"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0"
+            app:srcCompat="@drawable/normal_mushroom" />
+
+        <ImageView
+            android:id="@+id/fairy2"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:rotationY="180"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.89"
+            app:srcCompat="@drawable/fairy" />
+
+        <ImageView
+            android:id="@+id/fairy3"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:rotationY="180"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.89"
+            app:srcCompat="@drawable/fairy" />
+
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="300dp"
+            android:layout_height="300dp"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.15"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0"
+            app:srcCompat="@drawable/bandit1" />
+
+        <ImageView
+            android:id="@+id/roofSpike1"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:rotationX="180"
+            android:rotationY="180"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.65999997"
+            app:srcCompat="@drawable/large_mushroom3" />
+
+        <ImageView
+            android:id="@+id/roofSpike2"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:rotationX="180"
+            android:rotationY="180"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.65999997"
+            app:srcCompat="@drawable/large_mushroom3" />
+
+        <ImageView
+            android:id="@+id/roofSpike3"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:rotationX="180"
+            android:rotationY="180"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.65999997"
+            app:srcCompat="@drawable/large_mushroom3" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <Button
@@ -56,7 +260,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="158dp"
         android:layout_marginEnd="159dp"
-        android:text="Button"
+        android:text="dead"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

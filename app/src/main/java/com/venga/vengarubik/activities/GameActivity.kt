@@ -13,10 +13,13 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.os.SystemClock
+import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
+import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.constraintlayout.widget.ConstraintSet
 import com.venga.vengarubik.R
-import com.venga.vengarubik.models.Obstacle
+import com.venga.vengarubik.models.*
 import kotlin.math.abs
 import kotlin.properties.Delegates
 
@@ -60,6 +63,8 @@ class GameActivity : AppCompatActivity(), SensorEventListener {
     private var lastAcceleroUpdate = 0L
 
     private val obstacles = mutableListOf<Obstacle>()
+
+    private val isDead = false
     //endregion
 
     // region Life Cycles
@@ -87,6 +92,23 @@ class GameActivity : AppCompatActivity(), SensorEventListener {
 
         selectCaseSound = soundPool.load(this, R.raw.select_case, 1)
 
+        obstacles.add(FloorSpike(R.id.floorSpike1, 1f))
+        obstacles.add(FloorSpike(R.id.floorSpike2, 1.2f))
+        obstacles.add(RoofSpike(R.id.roofSpike1, 1.4f))
+        obstacles.add(Fairy(R.id.fairy1, 1.6f))
+        obstacles.add(FloorSpike(R.id.floorSpike3, 1.8f))
+        obstacles.add(Breakable(R.id.breakable1, 1.9f))
+        obstacles.add(Breakable(R.id.breakable2, 2f))
+        obstacles.add(Fairy(R.id.fairy2, 2.3f))
+        obstacles.add(Fairy(R.id.fairy3, 2.4f))
+        obstacles.add(RoofSpike(R.id.roofSpike2, 2.6f))
+        obstacles.add(FloorSpike(R.id.floorSpike4, 2.8f))
+        obstacles.add(RoofSpike(R.id.roofSpike3, 3f))
+        obstacles.add(FloorSpike(R.id.floorSpike5, 3.2f))
+        obstacles.add(FloorSpike(R.id.floorSpike6, 3.4f))
+        obstacles.add(Breakable(R.id.breakable3, 3.5f))
+        obstacles.add(Breakable(R.id.breakable4, 3.6f))
+
         mChronometer.start()
     }
 
@@ -99,8 +121,12 @@ class GameActivity : AppCompatActivity(), SensorEventListener {
 
     private val refreshDelay = 100
     private fun loop() {
-        //x² de jeu
+        if (isDead) return
         updateJumpBools()
+
+        //Boucle de jeu
+        updateObstacle()
+
         Handler(Looper.getMainLooper()).postDelayed({
             loop()
         }, refreshDelay.toLong())
@@ -113,6 +139,23 @@ class GameActivity : AppCompatActivity(), SensorEventListener {
             setJumpLow(false)
             setJumpHigh(false)
             jumpFrames = 0
+        }
+    }
+
+    private fun updateObstacle(){
+        for(obs in obstacles){
+            obs.pos -= 0.01f
+
+            if(obs is Breakable){
+                if (obs.pos < 0.25f) win()
+            }
+
+            val cl = findViewById<View>(R.id.runner) as ConstraintLayout
+            val cs = ConstraintSet()
+
+            cs.clone(cl)
+            cs.setHorizontalBias(obs.imgId, obs.pos)
+            cs.applyTo(cl)
         }
     }
 
