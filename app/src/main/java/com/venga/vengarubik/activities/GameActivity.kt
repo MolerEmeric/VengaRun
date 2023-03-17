@@ -179,11 +179,14 @@ class GameActivity : AppCompatActivity(), SensorEventListener {
         for(obs in obstacles){
             obs.pos -= 0.01f
 
-            if(obs.pos < 0 && obs.pos > 1){
-                findViewById<View>(obs.imgId).visibility = View.GONE
+            if(obs.pos < 0 || obs.pos > 1){
+               findViewById<View>(obs.imgId).visibility = View.GONE
+            }
+            else{
+                findViewById<View>(obs.imgId).visibility = View.VISIBLE
             }
 
-            if(obs.pos < 0.25f && (obs is Breakable || (obs is Fairy && evilFairies))) win()
+            //if(obs.pos < 0.25f && (obs is Breakable || (obs is Fairy && evilFairies))) win()
 
             if(obs is Breakable){
                 if((obs as Breakable).nbClick > 5){
@@ -193,22 +196,19 @@ class GameActivity : AppCompatActivity(), SensorEventListener {
                 if (obs.pos < 0.25f && (obs as Breakable).nbClick <= 5) win()
             }
 
-            //if(obs.pos < 0.25f && (obs is Breakable || (obs is Fairy && evilFairies))) win()
-
-            if(obs is Breakable){
-                if (obs.pos < 0.25f) win()
-            }
-
             if(obs is RoofSpike){
                 if (!estAccroupi && obs.pos < 0.20f) win()
             }
 
-            val cl = findViewById<View>(R.id.runner) as ConstraintLayout
-            val cs = ConstraintSet()
+            if(!(obs.pos < 0 && obs.pos > 1)){
+                val cl = findViewById<View>(R.id.runner) as ConstraintLayout
+                val cs = ConstraintSet()
 
-            cs.clone(cl)
-            cs.setHorizontalBias(obs.imgId, obs.pos)
-            cs.applyTo(cl)
+                cs.clone(cl)
+                cs.setHorizontalBias(obs.imgId, obs.pos)
+                cs.applyTo(cl)
+            }
+
         }
     }
 
