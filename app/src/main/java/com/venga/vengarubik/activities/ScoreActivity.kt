@@ -5,6 +5,7 @@ import android.media.AudioAttributes
 import android.media.SoundPool
 import android.os.Bundle
 import android.widget.Button
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.venga.vengarubik.R
 import com.venga.vengarubik.models.ScoreManager
@@ -22,9 +23,11 @@ class ScoreActivity : AppCompatActivity() {
 
         val btnBackward = soundPool.load(this, R.raw.btn_backward, 1)
         val startGame = soundPool.load(this, R.raw.start_game, 1)
+        val actualScore = intent.getIntExtra("actualScore", -1)
+        findViewById<TextView>(R.id.titleText).text = "${getString(R.string.your_score)} : $actualScore"
+        findViewById<TextView>(R.id.scoresText).text = getString(R.string.top_scores)
 
-
-        val scores = ScoreManager().getInstance()?.getScore();
+        val scores = ScoreManager.scores;
         val timeScoreIdMap = mapOf(
             1 to R.id.timeScore1,
             2 to R.id.timeScore2,
@@ -33,10 +36,12 @@ class ScoreActivity : AppCompatActivity() {
             5 to R.id.timeScore5
         )
 
-        /*for (i in 0 until 5) {
-            findViewById<TextView>(timeScoreIdMap[i + 1]!!).text = "${scores?.get(i)}"
-            findViewById<TextView>(timeScoreIdMap[i + 1]!!).text = "${scores?.get(i)}"
-        }*/
+        for (i in 0 until min(5, scores.size)) {
+            println(scores[i])
+            findViewById<TextView>(timeScoreIdMap[i + 1]!!).text = "${scores[i]}"
+            findViewById<TextView>(timeScoreIdMap[i + 1]!!).text = "${scores[i]}"
+        }
+
 
         findViewById<Button>(R.id.menuButton).setOnClickListener{
             soundPool.play(btnBackward, 1f, 1f, 0, 0, 1f)
@@ -49,7 +54,7 @@ class ScoreActivity : AppCompatActivity() {
             soundPool.play(startGame, 1f, 1f, 0, 0, 1f)
         }
 
-   }
+    }
 
     override fun onDestroy() {
         super.onDestroy()

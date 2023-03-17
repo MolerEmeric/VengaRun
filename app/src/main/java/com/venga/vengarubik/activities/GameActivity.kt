@@ -13,13 +13,22 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.os.SystemClock
+<<<<<<< HEAD
 import android.view.View
+=======
+import android.util.Log
+>>>>>>> 71e88a4490327b05e3f7285dbca20733d1c7288c
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.constraintlayout.widget.ConstraintSet
 import com.venga.vengarubik.R
+<<<<<<< HEAD
 import com.venga.vengarubik.models.*
+=======
+import com.venga.vengarubik.models.Obstacle
+import com.venga.vengarubik.models.ScoreManager
+>>>>>>> 71e88a4490327b05e3f7285dbca20733d1c7288c
 import kotlin.math.abs
 import kotlin.properties.Delegates
 
@@ -58,6 +67,7 @@ class GameActivity : AppCompatActivity(), SensorEventListener {
     private val shakeTreshold = 1000
     private var jumpHigh: Boolean = false
     private var jumpLow: Boolean = false
+    private var evilFairies: Boolean = false
     private var mAccelero = floatArrayOf(0f, 0f, 0f)
     private var mLastAccelero = floatArrayOf(0f, 0f, 0f)
     private var lastAcceleroUpdate = 0L
@@ -66,6 +76,8 @@ class GameActivity : AppCompatActivity(), SensorEventListener {
 
     private val isDead = false
     //endregion
+
+    private var estAccroupi = false
 
     // region Life Cycles
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -123,21 +135,35 @@ class GameActivity : AppCompatActivity(), SensorEventListener {
     private fun loop() {
         if (isDead) return
         updateJumpBools()
+<<<<<<< HEAD
 
         //Boucle de jeu
         updateObstacle()
 
+=======
+        updateAccroupi()
+        Log.d("info", estAccroupi.toString())
+>>>>>>> 71e88a4490327b05e3f7285dbca20733d1c7288c
         Handler(Looper.getMainLooper()).postDelayed({
             loop()
         }, refreshDelay.toLong())
     }
 
+    private var crochFrames = 0
+    private fun updateAccroupi(){
+       crochFrames += 1
+        if (crochFrames == 15){
+            estAccroupi = false
+            crochFrames = 0
+        }
+    }
+
     private var jumpFrames = 0
-    fun updateJumpBools() {  // 4 frames
+    private fun updateJumpBools() {  // 20 frames
         jumpFrames += 1
-        if (jumpFrames == 4) {
-            setJumpLow(false)
-            setJumpHigh(false)
+        if (jumpFrames == 20) {
+            jumpLow = false
+            jumpHigh = false
             jumpFrames = 0
         }
     }
@@ -194,10 +220,10 @@ class GameActivity : AppCompatActivity(), SensorEventListener {
                 if (speed > shakeTreshold) {
                     //TODO
                     if (speed < 2000) {
-                        setJumpLow(true)
+                        jumpLow = true
                     }
                     else {
-                        setJumpHigh(true)
+                        jumpHigh = true
                     }
                 }
                 mLastAccelero = mAccelero.clone()
@@ -211,32 +237,32 @@ class GameActivity : AppCompatActivity(), SensorEventListener {
             SensorManager.getRotationMatrixFromVector(rotationMatrix, event.values)
 
             val orientationAngles = FloatArray(3)
+
             SensorManager.getOrientation(rotationMatrix, orientationAngles) //REGARDER QUEL ANGLE UTIISER
 
-            var angle = orientationAngles[2] + 0.22f
-            if (angle < 0f) angle = 0f
-            if (angle > 0.44f) angle = 0.44f
-            angle *= (1f / 0.44f)
+            //Log.d("info", "0 : " + orientationAngles[0] + " 1 : " + orientationAngles[1] + " 2 : " + orientationAngles[2])
+
+            var angle = orientationAngles[2] + 0.45f
+            if (angle < 0) angle = 0f
+            if (angle > 0.45) angle = 0.45f
+            angle *= (1f / 0.45f)
+
+            Log.d("info","Angle" + angle)
+
+            if (angle > 0.03){
+                estAccroupi = true
+            }
+
 
             return
         }
 
 
         if (event.sensor.type == Sensor.TYPE_LIGHT) {
-            val light_value =
-                if (event.values[0] < 100f) 0f else if (event.values[0] > 500f) 500f else event.values[0]
-
+            evilFairies = event.values[0] >= 100f
             return
         }
 
-    }
-
-    fun setJumpHigh(bool: Boolean) {
-        jumpHigh = bool
-    }
-
-    fun setJumpLow(bool: Boolean) {
-        jumpLow = bool
     }
 
     override fun onAccuracyChanged(p0: Sensor?, p1: Int) {}
@@ -245,10 +271,11 @@ class GameActivity : AppCompatActivity(), SensorEventListener {
     // region Utilitaries
     private fun win(){
         mChronometer.stop()
-
         val timeLong = (SystemClock.elapsedRealtime() - mChronometer.base)
-        val time = (timeLong) / 1000
+        val time = ((timeLong) / 1000).toInt()
+        ScoreManager.addScore(time)
         val intent = Intent(this, ScoreActivity::class.java)
+        intent.putExtra("actualScore", time)
         startActivity(intent)
     }
     // endregion

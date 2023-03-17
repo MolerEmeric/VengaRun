@@ -17,7 +17,7 @@
     <string name="solve">Résoudre</string>
     <string name="inaccessible_database">PAS DE CONNEXION INTERNET</string>
     <string name="your_score">VOTRE SCORE</string>
-    <string name="top_scores">VOS MEILLEURS SCORES PASSES</string>
+    <string name="top_scores">VOS MEILLEURS 5 SCORES</string>
     <string name="worse_feedback">VOUS POUVEZ FAIRE MIEUX!</string>
     <string name="better_feedback">BRAVO! VOUS AVEZ BATTU VOTRE SCORE MAX</string>
     <string name="menu">menu</string>
