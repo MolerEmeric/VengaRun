@@ -96,12 +96,13 @@ class GameActivity : AppCompatActivity(), SensorEventListener {
         loop()
     }
 
+    private val refreshDelay = 100
     private fun loop() {
         //x² de jeu
 
         Handler(Looper.getMainLooper()).postDelayed({
             loop()
-        }, 100)
+        }, refreshDelay.toLong())
     }
 
     override fun onDestroy() {
