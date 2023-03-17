@@ -57,6 +57,7 @@ class GameActivity : AppCompatActivity(), SensorEventListener {
     private val shakeTreshold = 1000
     private var jumpHigh: Boolean = false
     private var jumpLow: Boolean = false
+    private var evilFairies: Boolean = false
     private var mAccelero = floatArrayOf(0f, 0f, 0f)
     private var mLastAccelero = floatArrayOf(0f, 0f, 0f)
     private var lastAcceleroUpdate = 0L
@@ -122,11 +123,11 @@ class GameActivity : AppCompatActivity(), SensorEventListener {
     }
 
     private var jumpFrames = 0
-    fun updateJumpBools() {  // 4 frames
+    private fun updateJumpBools() {  // 20 frames
         jumpFrames += 1
-        if (jumpFrames == 4) {
-            setJumpLow(false)
-            setJumpHigh(false)
+        if (jumpFrames == 20) {
+            jumpLow = false
+            jumpHigh = false
             jumpFrames = 0
         }
     }
@@ -166,10 +167,10 @@ class GameActivity : AppCompatActivity(), SensorEventListener {
                 if (speed > shakeTreshold) {
                     //TODO
                     if (speed < 2000) {
-                        setJumpLow(true)
+                        jumpLow = true
                     }
                     else {
-                        setJumpHigh(true)
+                        jumpHigh = true
                     }
                 }
                 mLastAccelero = mAccelero.clone()
@@ -205,20 +206,10 @@ class GameActivity : AppCompatActivity(), SensorEventListener {
 
 
         if (event.sensor.type == Sensor.TYPE_LIGHT) {
-            val light_value =
-                if (event.values[0] < 100f) 0f else if (event.values[0] > 500f) 500f else event.values[0]
-
+            evilFairies = event.values[0] >= 100f
             return
         }
 
-    }
-
-    fun setJumpHigh(bool: Boolean) {
-        jumpHigh = bool
-    }
-
-    fun setJumpLow(bool: Boolean) {
-        jumpLow = bool
     }
 
     override fun onAccuracyChanged(p0: Sensor?, p1: Int) {}
