@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="english_lang">Inglese</string>
+    <string name="german_lang">Tedesco</string>
+    <string name="french_lang">Francese</string>
+    <string name="italian_lang">Italiano</string>
+    <string name="validate">Convalidare</string>
+    <string name="change_lang">CAMBIA LINGUA</string>
+    <string name="choose_lang">Scegli una lingua:</string>
+    <string name="pseudo_hint">Inserisci il soprannome \u2026</string>
+    <string name="pseudo_missing">Per favore inserisci un nickname</string>
+    <string name="normal">Normale (2x2)</string>
+    <string name="extreme">Estremo (4x4)</string>
+    <string name="hard">Difficile (3x3)</string>
+    <string name="start">Comminciare</string>
+    <string name="previous">Precedente</string>
+    <string name="solve">Risolvere</string>
+    <string name="inaccessible_database">NESSUNA CONNESSIONE INTERNET</string>
+    <string name="your_score">VOSTRO PUNTEGGIO</string>
+    <string name="top_scores">VOSTRI PUNTEGGI MIGLIORI PASSATI</string>
+    <string name="worse_feedback">PUOI FAIRE MEGLIO!</string>
+    <string name="better_feedback">BRAVO! AVETE BATTUTO IL VOSTRO PUNTEGGIO PIÙ ALTO</string>
+    <string name="menu">menù</string>
+    <string name="replay">rigiocare</string>
+    <string name="light_mode">MODALITÀ LUCE</string>
+    <string name="equilibrist_mode">MODALITÀ BILANCIAMENTO</string>
+    <string name="seismic_mode">MODALITÀ SISMICA</string>
+    <string name="presenting">- Noi presentiamo -</string>
+    <string name="click_anywhere">Clicca ovunque \u2026</string>
+    <string name="selectTileHint">Seleziona qualsiasi casella\ u2026</string>
+    <string name="victory">VITTORIA !</string>
+</resources>

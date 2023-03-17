@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="english_lang">Anglais</string>
+    <string name="french_lang">Français</string>
+    <string name="italian_lang">Italien</string>
+    <string name="german_lang">Allemand</string>
+    <string name="validate">Valider</string>
+    <string name="change_lang">CHANGER LA LANGUE</string>
+    <string name="choose_lang">Choisir une langue :</string>
+    <string name="pseudo_hint">Entrez un pseudo \u2026</string>
+    <string name="pseudo_missing">Veuillez renseigner un pseudo</string>
+    <string name="normal">Normal (2x2)</string>
+    <string name="hard">Difficile (3x3)</string>
+    <string name="extreme">Très difficile (4x4)</string>
+    <string name="start">Commencer</string>
+    <string name="previous">Retour</string>
+    <string name="solve">Résoudre</string>
+    <string name="inaccessible_database">PAS DE CONNEXION INTERNET</string>
+    <string name="your_score">VOTRE SCORE</string>
+    <string name="top_scores">VOS MEILLEURS SCORES PASSES</string>
+    <string name="worse_feedback">VOUS POUVEZ FAIRE MIEUX!</string>
+    <string name="better_feedback">BRAVO! VOUS AVEZ BATTU VOTRE SCORE MAX</string>
+    <string name="menu">menu</string>
+    <string name="replay">Rejouer</string>
+    <string name="light_mode">MODE LUMIÈRE</string>
+    <string name="equilibrist_mode">MODE EQUILIBRISTE</string>
+    <string name="seismic_mode">MODE SISMIQUE</string>
+    <string name="presenting">- Nous présentons -</string>
+    <string name="click_anywhere">Cliquez n\'importe où \u2026</string>
+    <string name="selectTileHint">Selectionnez n\'importe quelle case \u2026</string>
+    <string name="victory">VICTOIRE !</string>
+</resources>

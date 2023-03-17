@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clickable="true"
+    tools:context=".activities.DifficultyActivity">
+
+    <ImageView
+        android:id="@+id/clickableBg2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:alpha="0"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_launcher_background" />
+
+    <Switch
+        android:id="@+id/lightSwitch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:fontFamily="@font/game_played"
+        android:text="@string/light_mode"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rotatoSwitch" />
+
+    <Switch
+        android:id="@+id/rotatoSwitch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:fontFamily="@font/game_played"
+        android:text="@string/equilibrist_mode"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/acceleroSwitch" />
+
+    <Switch
+        android:id="@+id/acceleroSwitch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:fontFamily="@font/game_played"
+        android:text="@string/seismic_mode"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/difficulties" />
+
+    <RadioGroup
+        android:id="@+id/difficulties"
+        android:layout_width="219dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:gravity="center"
+        android:textColor="#C2C1C1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/PseudoEditText">
+
+        <RadioButton
+            android:id="@+id/normalDifficulty"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:fontFamily="@font/game_played"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="@string/normal"
+            android:visibility="visible"
+            tools:layout_editor_absoluteX="149dp"
+            tools:layout_editor_absoluteY="209dp" />
+
+        <RadioButton
+            android:id="@+id/hardDifficulty"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/game_played"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="@string/hard"
+            tools:layout_editor_absoluteX="149dp"
+            tools:layout_editor_absoluteY="308dp" />
+
+        <RadioButton
+            android:id="@+id/extremeDifficulty"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/game_played"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="@string/extreme"
+            tools:layout_editor_absoluteX="149dp"
+            tools:layout_editor_absoluteY="308dp" />
+
+    </RadioGroup>
+
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="412dp"
+        android:layout_height="62dp"
+        android:layout_marginBottom="32dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <Button
+            android:id="@+id/previousButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:drawableLeft="@drawable/undo_20px"
+            android:drawableTint="#FFFFFF"
+            android:fontFamily="@font/game_played"
+            android:text="@string/previous"
+            android:textColor="@color/white" />
+
+        <Button
+            android:id="@+id/startButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:alpha="0.5"
+            android:backgroundTint="@color/teal_700"
+            android:drawableRight="@drawable/videogame_asset_20px"
+            android:drawableTint="#B3FFFFFF"
+            android:enabled="false"
+            android:fontFamily="@font/game_played"
+            android:text="@string/start"
+            android:textColor="@color/white" />
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/PseudoEditText"
+        android:layout_width="269dp"
+        android:layout_height="58dp"
+        android:layout_marginTop="60dp"
+        android:ems="10"
+        android:fontFamily="@font/game_played"
+        android:gravity="center"
+        android:hint="@string/pseudo_hint"
+        android:inputType="textPersonName|textCapCharacters"
+        android:textAllCaps="true"
+        android:textStyle="italic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/AppNameText"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/AppNameText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:fontFamily="@font/retronoid"
+        android:text="@string/app_name"
+        android:textColor="@color/orange"
+        android:textSize="40sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

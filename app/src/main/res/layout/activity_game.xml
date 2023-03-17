@@ -1,0 +1,1430 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/gameLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.GameActivity">
+
+    <TextView
+        android:id="@+id/winText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="70dp"
+        android:alpha="1"
+        android:fontFamily="@font/game_played"
+        android:foregroundTint="@android:color/holo_green_dark"
+        android:gravity="center|center_horizontal|center_vertical"
+        android:text="@string/victory"
+        android:textColor="@android:color/holo_green_dark"
+        android:textSize="48sp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="72dp"
+        android:backgroundTint="@android:color/holo_green_dark"
+        android:foregroundTint="@android:color/holo_green_dark"
+        android:indeterminateTint="@android:color/holo_green_dark"
+        android:progressTint="@android:color/holo_green_dark"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/winText" />
+
+    <TextView
+        android:id="@+id/selectTileHint"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
+        android:alpha="0.6"
+        android:fontFamily="@font/game_played"
+        android:gravity="center|center_horizontal|center_vertical"
+        android:text="@string/selectTileHint"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/FrontRightController"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:gravity="clip_vertical|start"
+        android:orientation="vertical"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal|center_vertical"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/ctrlUp1"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:backgroundTint="@color/orange"
+                app:tint="#FFFFFF"
+                app:srcCompat="@drawable/north_20px" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal|center_vertical"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/ctrlLeft1"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginRight="30dp"
+                android:backgroundTint="@color/orange"
+                app:tint="#FFFFFF"
+                app:srcCompat="@drawable/west_20px" />
+
+            <ImageButton
+                android:id="@+id/ctrlRight1"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginLeft="30dp"
+                android:backgroundTint="@color/orange"
+                app:tint="#FFFFFF"
+                app:srcCompat="@drawable/east_20px" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/ctrlDown1"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:backgroundTint="@color/orange"
+                app:tint="#FFFFFF"
+                app:srcCompat="@drawable/south_20px" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/TopController"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:orientation="vertical"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal|center_vertical"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/ctrlLeft2"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginBottom="5dp"
+                android:backgroundTint="@color/orange"
+                app:tint="#FFFFFF"
+                app:srcCompat="@drawable/north_west_20px" />
+
+            <ImageButton
+                android:id="@+id/ctrlUp2"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginBottom="5dp"
+                android:backgroundTint="@color/orange"
+                app:tint="#FFFFFF"
+                app:srcCompat="@drawable/north_east_20px" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/ctrlDown2"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginRight="5dp"
+                android:backgroundTint="@color/orange"
+                app:tint="#FFFFFF"
+                app:srcCompat="@drawable/south_west_20px" />
+
+            <ImageButton
+                android:id="@+id/ctrlRight2"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginLeft="5dp"
+                android:backgroundTint="@color/orange"
+                app:tint="#FFFFFF"
+                app:srcCompat="@drawable/south_east_20px" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/solveButton"
+        android:layout_width="150dp"
+        android:layout_height="42dp"
+        android:fontFamily="@font/game_played"
+        android:text="@string/solve"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.065"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/chronometer"
+        app:layout_constraintVertical_bias="0.043" />
+
+    <Chronometer
+        android:id="@+id/chronometer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:gravity="center"
+        android:textColor="@color/orange"
+        android:textSize="48sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/NormalCubeLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@+id/TopController"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/chronometer">
+
+        <androidx.constraintlayout.utils.widget.ImageFilterView
+            android:id="@+id/N_F0"
+            android:layout_width="52dp"
+            android:layout_height="90dp"
+            android:layout_marginBottom="-24dp"
+            android:onClick="imgSelect"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toTopOf="@+id/N_F2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:srcCompat="@drawable/isorhombus"
+            app:tint="#9CD4FA" />
+
+        <androidx.constraintlayout.utils.widget.ImageFilterView
+            android:id="@+id/N_F1"
+            android:layout_width="52dp"
+            android:layout_height="90dp"
+            android:layout_marginStart="6dp"
+            android:layout_marginBottom="-24dp"
+            android:onClick="imgSelect"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toTopOf="@+id/N_F3"
+            app:layout_constraintStart_toEndOf="@+id/N_F0"
+            app:srcCompat="@drawable/isorhombus"
+            app:tint="#9CD4FA" />
+
+        <androidx.constraintlayout.utils.widget.ImageFilterView
+            android:id="@+id/N_F2"
+            android:layout_width="52dp"
+            android:layout_height="90dp"
+            android:layout_marginBottom="33dp"
+            android:onClick="imgSelect"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:srcCompat="@drawable/isorhombus"
+            app:tint="#9CD4FA" />
+
+        <androidx.constraintlayout.utils.widget.ImageFilterView
+            android:id="@+id/N_F3"
+            android:layout_width="52dp"
+            android:layout_height="90dp"
+            android:layout_marginStart="6dp"
+            android:onClick="imgSelect"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/N_F2"
+            app:srcCompat="@drawable/isorhombus"
+            app:tint="#9CD4FA" />
+
+        <androidx.constraintlayout.utils.widget.ImageFilterView
+            android:id="@+id/N_R0"
+            android:layout_width="52dp"
+            android:layout_height="90dp"
+            android:layout_marginStart="6dp"
+            android:layout_marginBottom="-24dp"
+            android:fadingEdge="horizontal"
+            android:onClick="imgSelect"
+            android:rotation="60"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toTopOf="@+id/N_R2"
+            app:layout_constraintStart_toEndOf="@+id/N_F1"
+            app:srcCompat="@drawable/isorhombus"
+            app:tint="#9CD4FA" />
+
+        <androidx.constraintlayout.utils.widget.ImageFilterView
+            android:id="@+id/N_R1"
+            android:layout_width="52dp"
+            android:layout_height="90dp"
+            android:layout_marginStart="6dp"
+            android:layout_marginBottom="-24dp"
+            android:onClick="imgSelect"
+            android:rotation="60"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toTopOf="@+id/N_R3"
+            app:layout_constraintStart_toEndOf="@+id/N_R0"
+            app:srcCompat="@drawable/isorhombus"
+            app:tint="#9CD4FA" />
+
+        <androidx.constraintlayout.utils.widget.ImageFilterView
+            android:id="@+id/N_R2"
+            android:layout_width="52dp"
+            android:layout_height="90dp"
+            android:layout_marginStart="6dp"
+            android:onClick="imgSelect"
+            android:rotation="60"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/N_F3"
+            app:srcCompat="@drawable/isorhombus"
+            app:tint="#9CD4FA" />
+
+        <androidx.constraintlayout.utils.widget.ImageFilterView
+            android:id="@+id/N_R3"
+            android:layout_width="52dp"
+            android:layout_height="90dp"
+            android:layout_marginStart="6dp"
+            android:layout_marginBottom="33dp"
+            android:onClick="imgSelect"
+            android:rotation="60"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/N_R2"
+            app:srcCompat="@drawable/isorhombus"
+            app:tint="#9CD4FA" />
+
+        <androidx.constraintlayout.utils.widget.ImageFilterView
+            android:id="@+id/N_T0"
+            android:layout_width="52dp"
+            android:layout_height="90dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginBottom="-25dp"
+            android:onClick="imgSelect"
+            android:rotation="120"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toTopOf="@+id/N_T3"
+            app:layout_constraintStart_toEndOf="@+id/N_T2"
+            app:srcCompat="@drawable/isorhombus"
+            app:tint="#9CD4FA" />
+
+        <androidx.constraintlayout.utils.widget.ImageFilterView
+            android:id="@+id/N_T1"
+            android:layout_width="52dp"
+            android:layout_height="90dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginBottom="-38dp"
+            android:onClick="imgSelect"
+            android:rotation="120"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toTopOf="@+id/N_R1"
+            app:layout_constraintStart_toEndOf="@+id/N_T3"
+            app:srcCompat="@drawable/isorhombus"
+            app:tint="#9CD4FA" />
+
+        <androidx.constraintlayout.utils.widget.ImageFilterView
+            android:id="@+id/N_T2"
+            android:layout_width="52dp"
+            android:layout_height="90dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginBottom="-38dp"
+            android:onClick="imgSelect"
+            android:rotation="120"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toTopOf="@+id/N_F0"
+            app:layout_constraintEnd_toStartOf="@+id/N_T3"
+            app:srcCompat="@drawable/isorhombus"
+            app:tint="#9CD4FA" />
+
+        <androidx.constraintlayout.utils.widget.ImageFilterView
+            android:id="@+id/N_T3"
+            android:layout_width="52dp"
+            android:layout_height="90dp"
+            android:layout_marginStart="35dp"
+            android:layout_marginBottom="-38dp"
+            android:onClick="imgSelect"
+            android:rotation="120"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toTopOf="@+id/N_F1"
+            app:layout_constraintStart_toEndOf="@+id/N_F0"
+            app:srcCompat="@drawable/isorhombus"
+            app:tint="#9CD4FA" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/HardCubeLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@+id/FrontRightController"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/chronometer">
+
+        <androidx.constraintlayout.utils.widget.ImageFilterView
+            android:id="@+id/H_F0"
+            android:layout_width="52dp"
+            android:layout_height="90dp"
+            android:layout_marginBottom="-24dp"
+            android:onClick="imgSelect"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toTopOf="@+id/H_F3"
+            app:layout_constraintStart_toStartOf="parent"
+            app:srcCompat="@drawable/isorhombus"
+            app:tint="#9CD4FA" />
+
+        <androidx.constraintlayout.utils.widget.ImageFilterView
+            android:id="@+id/H_F1"
+            android:layout_width="52dp"
+            android:layout_height="90dp"
+            android:layout_marginStart="6dp"
+            android:layout_marginBottom="-24dp"
+            android:onClick="imgSelect"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toTopOf="@+id/H_F4"
+            app:layout_constraintStart_toEndOf="@+id/H_F0"
+            app:srcCompat="@drawable/isorhombus"
+            app:tint="#9CD4FA" />
+
+        <androidx.constraintlayout.utils.widget.ImageFilterView
+            android:id="@+id/H_F2"
+            android:layout_width="52dp"
+            android:layout_height="90dp"
+            android:layout_marginStart="6dp"
+            android:layout_marginBottom="-24dp"
+            android:onClick="imgSelect"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toTopOf="@+id/H_F5"
+            app:layout_constraintStart_toEndOf="@+id/H_F1"
+            app:srcCompat="@drawable/isorhombus"
+            app:tint="#9CD4FA" />
+
+        <androidx.constraintlayout.utils.widget.ImageFilterView
+            android:id="@+id/H_F3"
+            android:layout_width="52dp"
+            android:layout_height="90dp"
+            android:layout_marginBottom="-24dp"
+            android:onClick="imgSelect"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toTopOf="@+id/H_F6"
+            app:layout_constraintStart_toStartOf="parent"
+            app:srcCompat="@drawable/isorhombus"
+            app:tint="#9CD4FA" />
+
+        <androidx.constraintlayout.utils.widget.ImageFilterView
+            android:id="@+id/H_F4"
+            android:layout_width="52dp"
+            android:layout_height="90dp"
+            android:layout_marginStart="6dp"
+            android:layout_marginBottom="-24dp"
+            android:onClick="imgSelect"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toTopOf="@+id/H_F7"
+            app:layout_constraintStart_toEndOf="@+id/H_F3"
+            app:srcCompat="@drawable/isorhombus"
+            app:tint="#9CD4FA" />
+
+        <androidx.constraintlayout.utils.widget.ImageFilterView
+            android:id="@+id/H_F5"
+            android:layout_width="52dp"
+            android:layout_height="90dp"
+            android:layout_marginStart="6dp"
+            android:layout_marginBottom="-24dp"
+            android:onClick="imgSelect"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toTopOf="@+id/H_F8"
+            app:layout_constraintStart_toEndOf="@+id/H_F4"
+            app:srcCompat="@drawable/isorhombus"
+            app:tint="#9CD4FA" />
+
+        <androidx.constraintlayout.utils.widget.ImageFilterView
+            android:id="@+id/H_F6"
+            android:layout_width="52dp"
+            android:layout_height="90dp"
+            android:layout_marginBottom="66dp"
+            android:onClick="imgSelect"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:srcCompat="@drawable/isorhombus"
+            app:tint="#9CD4FA" />
+
+        <androidx.constraintlayout.utils.widget.ImageFilterView
+            android:id="@+id/H_F7"
+            android:layout_width="52dp"
+            android:layout_height="90dp"
+            android:layout_marginStart="6dp"
+            android:layout_marginBottom="33dp"
+            android:onClick="imgSelect"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/H_F6"
+            app:srcCompat="@drawable/isorhombus"
+            app:tint="#9CD4FA" />
+
+        <androidx.constraintlayout.utils.widget.ImageFilterView
+            android:id="@+id/H_F8"
+            android:layout_width="52dp"
+            android:layout_height="90dp"
+            android:layout_marginStart="6dp"
+            android:onClick="imgSelect"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/H_F7"
+            app:srcCompat="@drawable/isorhombus"
+            app:tint="#9CD4FA" />
+
+        <androidx.constraintlayout.utils.widget.ImageFilterView
+            android:id="@+id/H_R0"
+            android:layout_width="52dp"
+            android:layout_height="90dp"
+            android:layout_marginStart="6dp"
+            android:layout_marginBottom="-24dp"
+            android:onClick="imgSelect"
+            android:rotation="60"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toTopOf="@+id/H_R3"
+            app:layout_constraintStart_toEndOf="@+id/H_F2"
+            app:srcCompat="@drawable/isorhombus"
+            app:tint="#9CD4FA" />
+
+        <androidx.constraintlayout.utils.widget.ImageFilterView
+            android:id="@+id/H_R1"
+            android:layout_width="52dp"
+            android:layout_height="90dp"
+            android:layout_marginStart="6dp"
+            android:layout_marginBottom="-24dp"
+            android:onClick="imgSelect"
+            android:rotation="60"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toTopOf="@+id/H_R4"
+            app:layout_constraintStart_toEndOf="@+id/H_R0"
+            app:srcCompat="@drawable/isorhombus"
+            app:tint="#9CD4FA" />
+
+        <androidx.constraintlayout.utils.widget.ImageFilterView
+            android:id="@+id/H_R2"
+            android:layout_width="52dp"
+            android:layout_height="90dp"
+            android:layout_marginStart="6dp"
+            android:layout_marginBottom="-24dp"
+            android:onClick="imgSelect"
+            android:rotation="60"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toTopOf="@+id/H_R5"
+            app:layout_constraintStart_toEndOf="@+id/H_R1"
+            app:srcCompat="@drawable/isorhombus"
+            app:tint="#9CD4FA" />
+
+        <androidx.constraintlayout.utils.widget.ImageFilterView
+            android:id="@+id/H_R3"
+            android:layout_width="52dp"
+            android:layout_height="90dp"
+            android:layout_marginStart="6dp"
+            android:layout_marginBottom="-24dp"
+            android:onClick="imgSelect"
+            android:rotation="60"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toTopOf="@+id/H_R6"
+            app:layout_constraintStart_toEndOf="@+id/H_F5"
+            app:srcCompat="@drawable/isorhombus"
+            app:tint="#9CD4FA" />
+
+        <androidx.constraintlayout.utils.widget.ImageFilterView
+            android:id="@+id/H_R4"
+            android:layout_width="52dp"
+            android:layout_height="90dp"
+            android:layout_marginStart="6dp"
+            android:layout_marginBottom="-24dp"
+            android:onClick="imgSelect"
+            android:rotation="60"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toTopOf="@+id/H_R7"
+            app:layout_constraintStart_toEndOf="@+id/H_R3"
+            app:srcCompat="@drawable/isorhombus"
+            app:tint="#9CD4FA" />
+
+        <androidx.constraintlayout.utils.widget.ImageFilterView
+            android:id="@+id/H_R5"
+            android:layout_width="52dp"
+            android:layout_height="90dp"
+            android:layout_marginStart="6dp"
+            android:layout_marginBottom="-24dp"
+            android:onClick="imgSelect"
+            android:rotation="60"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toTopOf="@+id/H_R8"
+            app:layout_constraintStart_toEndOf="@+id/H_R4"
+            app:srcCompat="@drawable/isorhombus"
+            app:tint="#9CD4FA" />
+
+        <androidx.constraintlayout.utils.widget.ImageFilterView
+            android:id="@+id/H_R6"
+            android:layout_width="52dp"
+            android:layout_height="90dp"
+            android:layout_marginStart="6dp"
+            android:onClick="imgSelect"
+            android:rotation="60"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/H_F8"
+            app:srcCompat="@drawable/isorhombus"
+            app:tint="#9CD4FA" />
+
+        <androidx.constraintlayout.utils.widget.ImageFilterView
+            android:id="@+id/H_R7"
+            android:layout_width="52dp"
+            android:layout_height="90dp"
+            android:layout_marginStart="6dp"
+            android:layout_marginBottom="33dp"
+            android:onClick="imgSelect"
+            android:rotation="60"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/H_R6"
+            app:srcCompat="@drawable/isorhombus"
+            app:tint="#9CD4FA" />
+
+        <androidx.constraintlayout.utils.widget.ImageFilterView
+            android:id="@+id/H_R8"
+            android:layout_width="52dp"
+            android:layout_height="90dp"
+            android:layout_marginStart="6dp"
+            android:layout_marginBottom="66dp"
+            android:onClick="imgSelect"
+            android:rotation="60"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/H_R4"
+            app:srcCompat="@drawable/isorhombus"
+            app:tint="#9CD4FA" />
+
+        <androidx.constraintlayout.utils.widget.ImageFilterView
+            android:id="@+id/H_T0"
+            android:layout_width="52dp"
+            android:layout_height="90dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginBottom="-24dp"
+            android:onClick="imgSelect"
+            android:rotation="120"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toTopOf="@+id/H_T4"
+            app:layout_constraintStart_toEndOf="@+id/H_T3"
+            app:srcCompat="@drawable/isorhombus"
+            app:tint="#9CD4FA" />
+
+        <androidx.constraintlayout.utils.widget.ImageFilterView
+            android:id="@+id/H_T1"
+            android:layout_width="52dp"
+            android:layout_height="90dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginBottom="-24dp"
+            android:onClick="imgSelect"
+            android:rotation="120"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toTopOf="@+id/H_T5"
+            app:layout_constraintStart_toEndOf="@+id/H_T4"
+            app:srcCompat="@drawable/isorhombus"
+            app:tint="#9CD4FA" />
+
+        <androidx.constraintlayout.utils.widget.ImageFilterView
+            android:id="@+id/H_T2"
+            android:layout_width="52dp"
+            android:layout_height="90dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginBottom="-38dp"
+            android:onClick="imgSelect"
+            android:rotation="120"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toTopOf="@+id/H_R2"
+            app:layout_constraintStart_toEndOf="@+id/H_T5"
+            app:srcCompat="@drawable/isorhombus"
+            app:tint="#9CD4FA" />
+
+        <androidx.constraintlayout.utils.widget.ImageFilterView
+            android:id="@+id/H_T3"
+            android:layout_width="52dp"
+            android:layout_height="90dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginBottom="-24dp"
+            android:onClick="imgSelect"
+            android:rotation="120"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toTopOf="@+id/H_T7"
+            app:layout_constraintStart_toEndOf="@+id/H_T6"
+            app:srcCompat="@drawable/isorhombus"
+            app:tint="#9CD4FA" />
+
+        <androidx.constraintlayout.utils.widget.ImageFilterView
+            android:id="@+id/H_T4"
+            android:layout_width="52dp"
+            android:layout_height="90dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginBottom="-25dp"
+            android:onClick="imgSelect"
+            android:rotation="120"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toTopOf="@+id/H_T8"
+            app:layout_constraintStart_toEndOf="@+id/H_T7"
+            app:srcCompat="@drawable/isorhombus"
+            app:tint="#9CD4FA" />
+
+        <androidx.constraintlayout.utils.widget.ImageFilterView
+            android:id="@+id/H_T5"
+            android:layout_width="52dp"
+            android:layout_height="90dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginBottom="-38dp"
+            android:onClick="imgSelect"
+            android:rotation="120"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toTopOf="@+id/H_R1"
+            app:layout_constraintStart_toEndOf="@+id/H_T8"
+            app:srcCompat="@drawable/isorhombus"
+            app:tint="#9CD4FA" />
+
+        <androidx.constraintlayout.utils.widget.ImageFilterView
+            android:id="@+id/H_T6"
+            android:layout_width="52dp"
+            android:layout_height="90dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginBottom="-38dp"
+            android:onClick="imgSelect"
+            android:rotation="120"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toTopOf="@+id/H_F0"
+            app:layout_constraintEnd_toStartOf="@+id/H_T7"
+            app:srcCompat="@drawable/isorhombus"
+            app:tint="#9CD4FA" />
+
+        <androidx.constraintlayout.utils.widget.ImageFilterView
+            android:id="@+id/H_T7"
+            android:layout_width="52dp"
+            android:layout_height="90dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginBottom="-38dp"
+            android:onClick="imgSelect"
+            android:rotation="120"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toTopOf="@+id/H_F1"
+            app:layout_constraintEnd_toStartOf="@+id/H_T8"
+            app:srcCompat="@drawable/isorhombus"
+            app:tint="#9CD4FA" />
+
+        <androidx.constraintlayout.utils.widget.ImageFilterView
+            android:id="@+id/H_T8"
+            android:layout_width="52dp"
+            android:layout_height="90dp"
+            android:layout_marginStart="35dp"
+            android:layout_marginBottom="-38dp"
+            android:onClick="imgSelect"
+            android:rotation="120"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toTopOf="@+id/H_F2"
+            app:layout_constraintStart_toEndOf="@+id/H_F1"
+            app:srcCompat="@drawable/isorhombus"
+            app:tint="#9CD4FA" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/ExtremeCubeLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@+id/TopController"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/chronometer">
+
+        <androidx.constraintlayout.utils.widget.ImageFilterView
+            android:id="@+id/E_F0"
+            android:layout_width="52dp"
+            android:layout_height="90dp"
+            android:layout_marginBottom="-24dp"
+            android:onClick="imgSelect"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toTopOf="@+id/E_F4"
+            app:layout_constraintStart_toStartOf="parent"
+            app:srcCompat="@drawable/isorhombus"
+            app:tint="#9CD4FA" />
+
+        <androidx.constraintlayout.utils.widget.ImageFilterView
+            android:id="@+id/E_F1"
+            android:layout_width="52dp"
+            android:layout_height="90dp"
+            android:layout_marginStart="6dp"
+            android:layout_marginBottom="-24dp"
+            android:onClick="imgSelect"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toTopOf="@+id/E_F5"
+            app:layout_constraintStart_toEndOf="@+id/E_F0"
+            app:srcCompat="@drawable/isorhombus"
+            app:tint="#9CD4FA" />
+
+        <androidx.constraintlayout.utils.widget.ImageFilterView
+            android:id="@+id/E_F2"
+            android:layout_width="52dp"
+            android:layout_height="90dp"
+            android:layout_marginStart="6dp"
+            android:layout_marginBottom="-24dp"
+            android:onClick="imgSelect"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toTopOf="@+id/E_F6"
+            app:layout_constraintStart_toEndOf="@+id/E_F1"
+            app:srcCompat="@drawable/isorhombus"
+            app:tint="#9CD4FA" />
+
+        <androidx.constraintlayout.utils.widget.ImageFilterView
+            android:id="@+id/E_F3"
+            android:layout_width="52dp"
+            android:layout_height="90dp"
+            android:layout_marginStart="6dp"
+            android:layout_marginBottom="-24dp"
+            android:onClick="imgSelect"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toTopOf="@+id/E_F7"
+            app:layout_constraintStart_toEndOf="@+id/E_F2"
+            app:srcCompat="@drawable/isorhombus"
+            app:tint="#9CD4FA" />
+
+        <androidx.constraintlayout.utils.widget.ImageFilterView
+            android:id="@+id/E_F4"
+            android:layout_width="52dp"
+            android:layout_height="90dp"
+            android:layout_marginBottom="-24dp"
+            android:onClick="imgSelect"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toTopOf="@+id/E_F8"
+            app:layout_constraintStart_toStartOf="parent"
+            app:srcCompat="@drawable/isorhombus"
+            app:tint="#9CD4FA" />
+
+        <androidx.constraintlayout.utils.widget.ImageFilterView
+            android:id="@+id/E_F5"
+            android:layout_width="52dp"
+            android:layout_height="90dp"
+            android:layout_marginStart="6dp"
+            android:layout_marginBottom="-24dp"
+            android:onClick="imgSelect"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toTopOf="@+id/E_F9"
+            app:layout_constraintStart_toEndOf="@+id/E_F4"
+            app:srcCompat="@drawable/isorhombus"
+            app:tint="#9CD4FA" />
+
+        <androidx.constraintlayout.utils.widget.ImageFilterView
+            android:id="@+id/E_F6"
+            android:layout_width="52dp"
+            android:layout_height="90dp"
+            android:layout_marginStart="6dp"
+            android:layout_marginBottom="-24dp"
+            android:onClick="imgSelect"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toTopOf="@+id/E_F10"
+            app:layout_constraintStart_toEndOf="@+id/E_F5"
+            app:srcCompat="@drawable/isorhombus"
+            app:tint="#9CD4FA" />
+
+        <androidx.constraintlayout.utils.widget.ImageFilterView
+            android:id="@+id/E_F7"
+            android:layout_width="52dp"
+            android:layout_height="90dp"
+            android:layout_marginStart="6dp"
+            android:layout_marginBottom="-24dp"
+            android:onClick="imgSelect"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toTopOf="@+id/E_F11"
+            app:layout_constraintStart_toEndOf="@+id/E_F6"
+            app:srcCompat="@drawable/isorhombus"
+            app:tint="#9CD4FA" />
+
+        <androidx.constraintlayout.utils.widget.ImageFilterView
+            android:id="@+id/E_F8"
+            android:layout_width="52dp"
+            android:layout_height="90dp"
+            android:layout_marginBottom="-24dp"
+            android:onClick="imgSelect"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toTopOf="@+id/E_F12"
+            app:layout_constraintStart_toStartOf="parent"
+            app:srcCompat="@drawable/isorhombus"
+            app:tint="#9CD4FA" />
+
+        <androidx.constraintlayout.utils.widget.ImageFilterView
+            android:id="@+id/E_F9"
+            android:layout_width="52dp"
+            android:layout_height="90dp"
+            android:layout_marginStart="6dp"
+            android:layout_marginBottom="-24dp"
+            android:onClick="imgSelect"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toTopOf="@+id/E_F13"
+            app:layout_constraintStart_toEndOf="@+id/E_F8"
+            app:srcCompat="@drawable/isorhombus"
+            app:tint="#9CD4FA" />
+
+        <androidx.constraintlayout.utils.widget.ImageFilterView
+            android:id="@+id/E_F10"
+            android:layout_width="52dp"
+            android:layout_height="90dp"
+            android:layout_marginStart="6dp"
+            android:layout_marginBottom="-24dp"
+            android:onClick="imgSelect"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toTopOf="@+id/E_F14"
+            app:layout_constraintStart_toEndOf="@+id/E_F9"
+            app:srcCompat="@drawable/isorhombus"
+            app:tint="#9CD4FA" />
+
+        <androidx.constraintlayout.utils.widget.ImageFilterView
+            android:id="@+id/E_F11"
+            android:layout_width="52dp"
+            android:layout_height="90dp"
+            android:layout_marginStart="6dp"
+            android:layout_marginBottom="-24dp"
+            android:onClick="imgSelect"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toTopOf="@+id/E_F15"
+            app:layout_constraintStart_toEndOf="@+id/E_F10"
+            app:srcCompat="@drawable/isorhombus"
+            app:tint="#9CD4FA" />
+
+        <androidx.constraintlayout.utils.widget.ImageFilterView
+            android:id="@+id/E_F12"
+            android:layout_width="52dp"
+            android:layout_height="90dp"
+            android:layout_marginBottom="99dp"
+            android:onClick="imgSelect"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:srcCompat="@drawable/isorhombus"
+            app:tint="#9CD4FA" />
+
+        <androidx.constraintlayout.utils.widget.ImageFilterView
+            android:id="@+id/E_F13"
+            android:layout_width="52dp"
+            android:layout_height="90dp"
+            android:layout_marginStart="6dp"
+            android:layout_marginBottom="66dp"
+            android:onClick="imgSelect"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/E_F12"
+            app:srcCompat="@drawable/isorhombus"
+            app:tint="#9CD4FA" />
+
+        <androidx.constraintlayout.utils.widget.ImageFilterView
+            android:id="@+id/E_F14"
+            android:layout_width="52dp"
+            android:layout_height="90dp"
+            android:layout_marginStart="6dp"
+            android:layout_marginBottom="33dp"
+            android:onClick="imgSelect"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/E_F13"
+            app:srcCompat="@drawable/isorhombus"
+            app:tint="#9CD4FA" />
+
+        <androidx.constraintlayout.utils.widget.ImageFilterView
+            android:id="@+id/E_F15"
+            android:layout_width="52dp"
+            android:layout_height="90dp"
+            android:layout_marginStart="6dp"
+            android:onClick="imgSelect"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/E_F14"
+            app:srcCompat="@drawable/isorhombus"
+            app:tint="#9CD4FA" />
+
+        <androidx.constraintlayout.utils.widget.ImageFilterView
+            android:id="@+id/E_R0"
+            android:layout_width="52dp"
+            android:layout_height="90dp"
+            android:layout_marginStart="6dp"
+            android:layout_marginBottom="-24dp"
+            android:onClick="imgSelect"
+            android:rotation="60"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toTopOf="@+id/E_R4"
+            app:layout_constraintStart_toEndOf="@+id/E_F3"
+            app:srcCompat="@drawable/isorhombus"
+            app:tint="#9CD4FA" />
+
+        <androidx.constraintlayout.utils.widget.ImageFilterView
+            android:id="@+id/E_R1"
+            android:layout_width="52dp"
+            android:layout_height="90dp"
+            android:layout_marginStart="6dp"
+            android:layout_marginBottom="-24dp"
+            android:onClick="imgSelect"
+            android:rotation="60"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toTopOf="@+id/E_R5"
+            app:layout_constraintStart_toEndOf="@+id/E_R0"
+            app:srcCompat="@drawable/isorhombus"
+            app:tint="#9CD4FA" />
+
+        <androidx.constraintlayout.utils.widget.ImageFilterView
+            android:id="@+id/E_R2"
+            android:layout_width="52dp"
+            android:layout_height="90dp"
+            android:layout_marginStart="6dp"
+            android:layout_marginBottom="-24dp"
+            android:onClick="imgSelect"
+            android:rotation="60"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toTopOf="@+id/E_R6"
+            app:layout_constraintStart_toEndOf="@+id/E_R1"
+            app:srcCompat="@drawable/isorhombus"
+            app:tint="#9CD4FA" />
+
+        <androidx.constraintlayout.utils.widget.ImageFilterView
+            android:id="@+id/E_R3"
+            android:layout_width="52dp"
+            android:layout_height="90dp"
+            android:layout_marginStart="6dp"
+            android:layout_marginBottom="-24dp"
+            android:onClick="imgSelect"
+            android:rotation="60"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toTopOf="@+id/E_R7"
+            app:layout_constraintStart_toEndOf="@+id/E_R2"
+            app:srcCompat="@drawable/isorhombus"
+            app:tint="#9CD4FA" />
+
+        <androidx.constraintlayout.utils.widget.ImageFilterView
+            android:id="@+id/E_R4"
+            android:layout_width="52dp"
+            android:layout_height="90dp"
+            android:layout_marginStart="6dp"
+            android:layout_marginBottom="-24dp"
+            android:onClick="imgSelect"
+            android:rotation="60"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toTopOf="@+id/E_R8"
+            app:layout_constraintStart_toEndOf="@+id/E_F7"
+            app:srcCompat="@drawable/isorhombus"
+            app:tint="#9CD4FA" />
+
+        <androidx.constraintlayout.utils.widget.ImageFilterView
+            android:id="@+id/E_R5"
+            android:layout_width="52dp"
+            android:layout_height="90dp"
+            android:layout_marginStart="6dp"
+            android:layout_marginBottom="-24dp"
+            android:onClick="imgSelect"
+            android:rotation="60"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toTopOf="@+id/E_R9"
+            app:layout_constraintStart_toEndOf="@+id/E_R4"
+            app:srcCompat="@drawable/isorhombus"
+            app:tint="#9CD4FA" />
+
+        <androidx.constraintlayout.utils.widget.ImageFilterView
+            android:id="@+id/E_R6"
+            android:layout_width="52dp"
+            android:layout_height="90dp"
+            android:layout_marginStart="6dp"
+            android:layout_marginBottom="-24dp"
+            android:onClick="imgSelect"
+            android:rotation="60"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toTopOf="@+id/E_R10"
+            app:layout_constraintStart_toEndOf="@+id/E_R5"
+            app:srcCompat="@drawable/isorhombus"
+            app:tint="#9CD4FA" />
+
+        <androidx.constraintlayout.utils.widget.ImageFilterView
+            android:id="@+id/E_R7"
+            android:layout_width="52dp"
+            android:layout_height="90dp"
+            android:layout_marginStart="6dp"
+            android:layout_marginBottom="-24dp"
+            android:onClick="imgSelect"
+            android:rotation="60"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toTopOf="@+id/E_R11"
+            app:layout_constraintStart_toEndOf="@+id/E_R6"
+            app:srcCompat="@drawable/isorhombus"
+            app:tint="#9CD4FA" />
+
+        <androidx.constraintlayout.utils.widget.ImageFilterView
+            android:id="@+id/E_R8"
+            android:layout_width="52dp"
+            android:layout_height="90dp"
+            android:layout_marginStart="6dp"
+            android:layout_marginBottom="-24dp"
+            android:onClick="imgSelect"
+            android:rotation="60"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toTopOf="@+id/E_R12"
+            app:layout_constraintStart_toEndOf="@+id/E_F11"
+            app:srcCompat="@drawable/isorhombus"
+            app:tint="#9CD4FA" />
+
+        <androidx.constraintlayout.utils.widget.ImageFilterView
+            android:id="@+id/E_R9"
+            android:layout_width="52dp"
+            android:layout_height="90dp"
+            android:layout_marginStart="6dp"
+            android:layout_marginBottom="-24dp"
+            android:onClick="imgSelect"
+            android:rotation="60"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toTopOf="@+id/E_R13"
+            app:layout_constraintStart_toEndOf="@+id/E_R8"
+            app:srcCompat="@drawable/isorhombus"
+            app:tint="#9CD4FA" />
+
+        <androidx.constraintlayout.utils.widget.ImageFilterView
+            android:id="@+id/E_R10"
+            android:layout_width="52dp"
+            android:layout_height="90dp"
+            android:layout_marginStart="6dp"
+            android:layout_marginBottom="-24dp"
+            android:onClick="imgSelect"
+            android:rotation="60"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toTopOf="@+id/E_R14"
+            app:layout_constraintStart_toEndOf="@+id/E_R5"
+            app:srcCompat="@drawable/isorhombus"
+            app:tint="#9CD4FA" />
+
+        <androidx.constraintlayout.utils.widget.ImageFilterView
+            android:id="@+id/E_R11"
+            android:layout_width="52dp"
+            android:layout_height="90dp"
+            android:layout_marginStart="6dp"
+            android:layout_marginBottom="-24dp"
+            android:onClick="imgSelect"
+            android:rotation="60"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toTopOf="@+id/E_R15"
+            app:layout_constraintStart_toEndOf="@+id/E_R10"
+            app:srcCompat="@drawable/isorhombus"
+            app:tint="#9CD4FA" />
+
+        <androidx.constraintlayout.utils.widget.ImageFilterView
+            android:id="@+id/E_R12"
+            android:layout_width="52dp"
+            android:layout_height="90dp"
+            android:layout_marginStart="6dp"
+            android:onClick="imgSelect"
+            android:rotation="60"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/E_F15"
+            app:srcCompat="@drawable/isorhombus"
+            app:tint="#9CD4FA" />
+
+        <androidx.constraintlayout.utils.widget.ImageFilterView
+            android:id="@+id/E_R13"
+            android:layout_width="52dp"
+            android:layout_height="90dp"
+            android:layout_marginStart="6dp"
+            android:layout_marginBottom="33dp"
+            android:onClick="imgSelect"
+            android:rotation="60"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/E_R12"
+            app:srcCompat="@drawable/isorhombus"
+            app:tint="#9CD4FA" />
+
+        <androidx.constraintlayout.utils.widget.ImageFilterView
+            android:id="@+id/E_R14"
+            android:layout_width="52dp"
+            android:layout_height="90dp"
+            android:layout_marginStart="6dp"
+            android:layout_marginBottom="66dp"
+            android:onClick="imgSelect"
+            android:rotation="60"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/E_R13"
+            app:srcCompat="@drawable/isorhombus"
+            app:tint="#9CD4FA" />
+
+        <androidx.constraintlayout.utils.widget.ImageFilterView
+            android:id="@+id/E_R15"
+            android:layout_width="52dp"
+            android:layout_height="90dp"
+            android:layout_marginStart="6dp"
+            android:layout_marginBottom="99dp"
+            android:onClick="imgSelect"
+            android:rotation="60"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/E_R14"
+            app:srcCompat="@drawable/isorhombus"
+            app:tint="#9CD4FA" />
+
+        <androidx.constraintlayout.utils.widget.ImageFilterView
+            android:id="@+id/E_T0"
+            android:layout_width="52dp"
+            android:layout_height="90dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginBottom="-24dp"
+            android:onClick="imgSelect"
+            android:rotation="120"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toTopOf="@+id/E_T5"
+            app:layout_constraintStart_toEndOf="@+id/E_T4"
+            app:srcCompat="@drawable/isorhombus"
+            app:tint="#9CD4FA" />
+
+        <androidx.constraintlayout.utils.widget.ImageFilterView
+            android:id="@+id/E_T1"
+            android:layout_width="52dp"
+            android:layout_height="90dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginBottom="-24dp"
+            android:onClick="imgSelect"
+            android:rotation="120"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toTopOf="@+id/E_T6"
+            app:layout_constraintStart_toEndOf="@+id/E_T5"
+            app:srcCompat="@drawable/isorhombus"
+            app:tint="#9CD4FA" />
+
+        <androidx.constraintlayout.utils.widget.ImageFilterView
+            android:id="@+id/E_T2"
+            android:layout_width="52dp"
+            android:layout_height="90dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginBottom="-25dp"
+            android:onClick="imgSelect"
+            android:rotation="120"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toTopOf="@+id/E_T7"
+            app:layout_constraintStart_toEndOf="@+id/E_T6"
+            app:srcCompat="@drawable/isorhombus"
+            app:tint="#9CD4FA" />
+
+        <androidx.constraintlayout.utils.widget.ImageFilterView
+            android:id="@+id/E_T3"
+            android:layout_width="52dp"
+            android:layout_height="90dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginBottom="-38dp"
+            android:onClick="imgSelect"
+            android:rotation="120"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toTopOf="@+id/E_R3"
+            app:layout_constraintStart_toEndOf="@+id/E_T7"
+            app:srcCompat="@drawable/isorhombus"
+            app:tint="#9CD4FA" />
+
+        <androidx.constraintlayout.utils.widget.ImageFilterView
+            android:id="@+id/E_T4"
+            android:layout_width="52dp"
+            android:layout_height="90dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginBottom="-24dp"
+            android:onClick="imgSelect"
+            android:rotation="120"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toTopOf="@+id/E_T9"
+            app:layout_constraintStart_toEndOf="@+id/E_T8"
+            app:srcCompat="@drawable/isorhombus"
+            app:tint="#9CD4FA" />
+
+        <androidx.constraintlayout.utils.widget.ImageFilterView
+            android:id="@+id/E_T5"
+            android:layout_width="52dp"
+            android:layout_height="90dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginBottom="-24dp"
+            android:onClick="imgSelect"
+            android:rotation="120"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toTopOf="@+id/E_T10"
+            app:layout_constraintStart_toEndOf="@+id/E_T9"
+            app:srcCompat="@drawable/isorhombus"
+            app:tint="#9CD4FA" />
+
+        <androidx.constraintlayout.utils.widget.ImageFilterView
+            android:id="@+id/E_T6"
+            android:layout_width="52dp"
+            android:layout_height="90dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginBottom="-24dp"
+            android:onClick="imgSelect"
+            android:rotation="120"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toTopOf="@+id/E_T11"
+            app:layout_constraintStart_toEndOf="@+id/E_T10"
+            app:srcCompat="@drawable/isorhombus"
+            app:tint="#9CD4FA" />
+
+        <androidx.constraintlayout.utils.widget.ImageFilterView
+            android:id="@+id/E_T7"
+            android:layout_width="52dp"
+            android:layout_height="90dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginBottom="-38dp"
+            android:onClick="imgSelect"
+            android:rotation="120"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toTopOf="@+id/E_R2"
+            app:layout_constraintStart_toEndOf="@+id/E_T11"
+            app:srcCompat="@drawable/isorhombus"
+            app:tint="#9CD4FA" />
+
+        <androidx.constraintlayout.utils.widget.ImageFilterView
+            android:id="@+id/E_T8"
+            android:layout_width="52dp"
+            android:layout_height="90dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginBottom="-24dp"
+            android:onClick="imgSelect"
+            android:rotation="120"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toTopOf="@+id/E_T13"
+            app:layout_constraintStart_toEndOf="@+id/E_T12"
+            app:srcCompat="@drawable/isorhombus"
+            app:tint="#9CD4FA" />
+
+        <androidx.constraintlayout.utils.widget.ImageFilterView
+            android:id="@+id/E_T9"
+            android:layout_width="52dp"
+            android:layout_height="90dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginBottom="-24dp"
+            android:onClick="imgSelect"
+            android:rotation="120"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toTopOf="@+id/E_T14"
+            app:layout_constraintStart_toEndOf="@+id/E_T13"
+            app:srcCompat="@drawable/isorhombus"
+            app:tint="#9CD4FA" />
+
+        <androidx.constraintlayout.utils.widget.ImageFilterView
+            android:id="@+id/E_T10"
+            android:layout_width="52dp"
+            android:layout_height="90dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginBottom="-25dp"
+            android:onClick="imgSelect"
+            android:rotation="120"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toTopOf="@+id/E_T15"
+            app:layout_constraintStart_toEndOf="@+id/E_T14"
+            app:srcCompat="@drawable/isorhombus"
+            app:tint="#9CD4FA" />
+
+        <androidx.constraintlayout.utils.widget.ImageFilterView
+            android:id="@+id/E_T11"
+            android:layout_width="52dp"
+            android:layout_height="90dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginBottom="-38dp"
+            android:onClick="imgSelect"
+            android:rotation="120"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toTopOf="@+id/E_R1"
+            app:layout_constraintStart_toEndOf="@+id/E_T15"
+            app:srcCompat="@drawable/isorhombus"
+            app:tint="#9CD4FA" />
+
+        <androidx.constraintlayout.utils.widget.ImageFilterView
+            android:id="@+id/E_T12"
+            android:layout_width="52dp"
+            android:layout_height="90dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginBottom="-38dp"
+            android:onClick="imgSelect"
+            android:rotation="120"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toTopOf="@+id/E_F0"
+            app:layout_constraintEnd_toStartOf="@+id/E_T13"
+            app:srcCompat="@drawable/isorhombus"
+            app:tint="#9CD4FA" />
+
+        <androidx.constraintlayout.utils.widget.ImageFilterView
+            android:id="@+id/E_T13"
+            android:layout_width="52dp"
+            android:layout_height="90dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginBottom="-38dp"
+            android:onClick="imgSelect"
+            android:rotation="120"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toTopOf="@+id/E_F1"
+            app:layout_constraintEnd_toStartOf="@+id/E_T14"
+            app:srcCompat="@drawable/isorhombus"
+            app:tint="#9CD4FA" />
+
+        <androidx.constraintlayout.utils.widget.ImageFilterView
+            android:id="@+id/E_T14"
+            android:layout_width="52dp"
+            android:layout_height="90dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginBottom="-38dp"
+            android:onClick="imgSelect"
+            android:rotation="120"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toTopOf="@+id/E_F2"
+            app:layout_constraintEnd_toStartOf="@+id/E_T15"
+            app:srcCompat="@drawable/isorhombus"
+            app:tint="#9CD4FA" />
+
+        <androidx.constraintlayout.utils.widget.ImageFilterView
+            android:id="@+id/E_T15"
+            android:layout_width="52dp"
+            android:layout_height="90dp"
+            android:layout_marginStart="35dp"
+            android:layout_marginBottom="-38dp"
+            android:onClick="imgSelect"
+            android:rotation="120"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toTopOf="@+id/E_F3"
+            app:layout_constraintStart_toEndOf="@+id/E_F2"
+            app:srcCompat="@drawable/isorhombus"
+            app:tint="#9CD4FA" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

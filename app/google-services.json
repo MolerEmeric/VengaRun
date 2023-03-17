@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "844075537065",
+    "project_id": "vengarubikfinal",
+    "storage_bucket": "vengarubikfinal.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:844075537065:android:4ba6d048939e86aac10fb8",
+        "android_client_info": {
+          "package_name": "com.venga.vengarubik"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "844075537065-bs27hrujmt1cgpqcl9rjgrvold5cps7t.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBe9wZ1ozjDFMcJTk1npz31pCh6jkRaHoE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "844075537065-bs27hrujmt1cgpqcl9rjgrvold5cps7t.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

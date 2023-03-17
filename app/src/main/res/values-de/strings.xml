@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="english_lang">Englisch</string>
+    <string name="french_lang">Französisch</string>
+    <string name="italian_lang">Italienisch</string>
+    <string name="german_lang">Deutsch</string>
+    <string name="validate">Bestätigen</string>
+    <string name="change_lang">SPRACHE ÄNDERN</string>
+    <string name="choose_lang">Wählen Sie eine Sprache:</string>
+    <string name="pseudo_hint">Spitznamen eingeben \u2026</string>
+    <string name="pseudo_missing">Bitte geben Sie einen Spitznamen ein</string>
+    <string name="normal">Normal (2x2)</string>
+    <string name="extreme">Extrem (4x4)</string>
+    <string name="hard">Schwierig (3x3)</string>
+    <string name="start">Anfangen</string>
+    <string name="previous">Vorherige</string>
+    <string name="solve">Lösen</string>
+    <string name="inaccessible_database">KEINE INTERNETVERBINDUNG</string>
+    <string name="your_score">IHR ERGEBNIS</string>
+    <string name="top_scores">IHRE VERGANGENEN TOP-SCORES</string>
+    <string name="worse_feedback">DAS KÖNNT IHR BESSER!</string>
+    <string name="better_feedback">GEIL! IHR HABT EURES BESTES SCORE UBERTROFFEN</string>
+    <string name="menu">" Menü"</string>
+    <string name="replay">Wiederholung</string>
+    <string name="light_mode">LICHTMODUS</string>
+    <string name="equilibrist_mode">"BALANCE-MODUS "</string>
+    <string name="seismic_mode">SEISMISCHER MODUS</string>
+    <string name="presenting">- Wir präsentieren -</string>
+    <string name="click_anywhere">Klicke irgendwo \u2026</string>
+    <string name="selectTileHint">Wählen Sie ein beliebiges Feld aus \u2026</string>
+    <string name="victory">SIEG !</string>
+</resources>

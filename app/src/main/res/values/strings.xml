@@ -1,0 +1,32 @@
+<resources>
+    <string name="app_name" translatable="false">VengaRubik\'s</string>
+    <string name="english_lang">English</string>
+    <string name="french_lang">French</string>
+    <string name="italian_lang">Italian</string>
+    <string name="german_lang">German</string>
+    <string name="validate">Validate</string>
+    <string name="change_lang">CHANGE LANGUAGE</string>
+    <string name="choose_lang">Choose language :</string>
+    <string name="pseudo_hint">Enter nickname \u2026</string>
+    <string name="pseudo_missing">Please enter a nickname</string>
+    <string name="normal">Normal (2x2)</string>
+    <string name="hard">Hard (3x3)</string>
+    <string name="start">Start</string>
+    <string name="previous">Previous</string>
+    <string name="solve">Solve</string>
+    <string name="extreme">Extreme (4x4)</string>
+    <string name="inaccessible_database">NO INTERNET CONNECTION</string>
+    <string name="your_score">YOUR SCORE</string>
+    <string name="top_scores">YOUR PAST TOP SCORES</string>
+    <string name="worse_feedback">YOU CAN DO BETTER!</string>
+    <string name="better_feedback">NICE! YOU BEAT YOUR TOP SCORE</string>
+    <string name="menu">menu</string>
+    <string name="replay">replay</string>
+    <string name="light_mode">LIGHT MODE</string>
+    <string name="equilibrist_mode">EQUILIBRIST MODE</string>
+    <string name="seismic_mode">SEISMIC MODE</string>
+    <string name="presenting">- Presenting -</string>
+    <string name="click_anywhere">Click anywhere \u2026</string>
+    <string name="selectTileHint">Select any tile \u2026</string>
+    <string name="victory">VICTORY !</string>
+</resources>
